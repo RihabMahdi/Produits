@@ -10,48 +10,57 @@ const Register = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [isAdmin, setIsAdmin] = useState(false); // State to track admin checkbox
 
-    const handleRegister = () => {
-        const newUser = { username, password };
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const newUser = { username, password, isAdmin }; // Include isAdmin in the user data
         dispatch(register(newUser));
-        navigate('/login'); // Navigate to login after registration
+        navigate('/login');
     };
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
-            <h1 className="text-2xl font-bold text-center mb-4">Register</h1>
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                    Username
-                </label>
-                <input
-                    type="text"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
-                    placeholder="Choose a username"
-                />
+        <div className="container mt-5">
+            <div className="card mx-auto" style={{ maxWidth: '400px' }}>
+                <div className="card-body">
+                    <h5 className="card-title text-center">Register</h5>
+                    <form onSubmit={handleRegister}>
+                        <div className="mb-3">
+                            <label className="form-label">Username</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Password</label>
+                            <input
+                                type="password"
+                                className="form-control"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="form-check mb-3">
+                            <input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="adminCheck"
+                                checked={isAdmin}
+                                onChange={(e) => setIsAdmin(e.target.checked)}
+                            />
+                            <label className="form-check-label" htmlFor="adminCheck">
+                                Register as Admin
+                            </label>
+                        </div>
+                        <button type="submit" className="btn btn-primary w-100">Register</button>
+                    </form>
+                </div>
             </div>
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                    Password
-                </label>
-                <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
-                    placeholder="Create a password"
-                />
-            </div>
-            <button
-                onClick={handleRegister}
-                className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600"
-            >
-                Register
-            </button>
         </div>
     );
 };

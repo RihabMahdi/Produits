@@ -1,30 +1,38 @@
-// src/components/ProductCard.js
-import React from 'react';
+// src/components/ProductCard.jsx
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { deleteProduct } from '../features/ProSlice';
 import { addItemToCart } from '../features/cartSlice';
+import EditProductForm from './EditProductForm';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, isAdmin }) => {
     const dispatch = useDispatch();
+    const [isEditing, setIsEditing] = useState(false);
+
+    const handleDelete = () => {
+        dispatch(deleteProduct(product.id));
+    };
 
     const handleAddToCart = () => {
-        // Dispatch the action to add the item to the cart
-        dispatch(addItemToCart({
-            id: product.id,
-            name: product.name,
-            description: product.description,
-            img: product.img,
-            prix: product.prix,
-            quantity: 1 // Add a default quantity of 1
-        }));
+        dispatch(addItemToCart(product));
     };
 
     return (
-        <div className="product-card">
-            <img src={product.img} alt={product.name} style={{ width: '100px', height: '100px' }} />
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>Price: ${product.prix}</p>
-            <button onClick={handleAddToCart}>Add to Cart</button>
+        <div className="card mb-4 shadow-sm">
+            <img src={product.img} className="card-img-top" alt={product.name} />
+            <div className="card-body">
+                <h5 className="card-title">{product.name}</h5>
+                <p className="card-text">{product.description}</p>
+                <p className="card-text text-success">${product.price}</p>
+                <button onClick={handleAddToCart} className="btn btn-primary">Add to Cart</button>
+                {isAdmin && (
+                    <div className="mt-2">
+                        <button onClick={() => setIsEditing(true)} className="btn btn-warning me-2">Edit</button>
+                        <button onClick={handleDelete} className="btn btn-danger">Delete</button>
+                    </div>
+                )}
+                {isEditing && <EditProductForm product={product} onClose={() => setIsEditing(false)} />}
+            </div>
         </div>
     );
 };

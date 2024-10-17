@@ -1,8 +1,8 @@
-// src/components/Login.js
+// src/components/Login.jsx
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../features/authSlice'; // Make sure the path is correct
+import { login } from '../features/AuthSlice';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -18,10 +18,10 @@ const Login = () => {
         );
 
         if (userExists) {
-            dispatch(login({ username, password })); // Dispatch the login action
-            navigate('/'); // Navigate to the home page after successful login
+            dispatch(login({ username, password }));
+            navigate('/'); // Redirect to home page after successful login
         } else {
-            alert('Invalid credentials'); // Alert for invalid login
+            alert('Invalid credentials');
         }
     };
 
