@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
@@ -7,6 +5,7 @@ import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
 import { useSelector } from 'react-redux';
+import ProductForm from './components/ProductForm';
 
 const App = () => {
   const user = useSelector((state) => state.auth.user);
@@ -22,6 +21,7 @@ const App = () => {
             <>
               <Route path="/products" element={<ProductList />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/addProduct" element={<ProductForm />} /> {/* Default route */}
             </>
           ) : (
             <Route path="/" element={<Login />} />

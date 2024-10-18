@@ -1,5 +1,4 @@
-// src/components/ProductList.jsx
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts, selectAllProducts } from '../features/ProSlice';
 import ProductCard from './ProductCard';
@@ -8,8 +7,8 @@ const ProductList = () => {
     const dispatch = useDispatch();
     const products = useSelector(selectAllProducts);
     const productStatus = useSelector((state) => state.products.status);
-    const user = useSelector((state) => state.auth.user); // Get the user from Redux state
-    const isAdmin = user?.isAdmin; // Determine if the user is an admin
+    const user = useSelector((state) => state.auth.user); 
+    const isAdmin = user?.isAdmin; 
 
     useEffect(() => {
         if (productStatus === 'idle') {

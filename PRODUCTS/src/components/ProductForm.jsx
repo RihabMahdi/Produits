@@ -1,10 +1,11 @@
-
-import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import  { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../features/ProSlice';
 
 const ProductForm = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         description: '',
@@ -20,6 +21,7 @@ const ProductForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(addProduct({ ...formData, id: Math.random() * 10000 }));
+        navigate('/products');
         setFormData({ name: '', description: '', img: '', prix: '' });
     };
 
