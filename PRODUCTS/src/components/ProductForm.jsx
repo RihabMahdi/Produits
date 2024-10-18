@@ -24,24 +24,57 @@ const ProductForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="container mt-4">
-            <div className="mb-3">
-                <label className="form-label">Name</label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-control" required />
+        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto mt-10">
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
+                    required
+                />
             </div>
-            <div className="mb-3">
-                <label className="form-label">Description</label>
-                <input type="text" name="description" value={formData.description} onChange={handleChange} className="form-control" required />
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                <input
+                    type="text"
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
+                    required
+                />
             </div>
-            <div className="mb-3">
-                <label className="form-label">Image URL</label>
-                <input type="text" name="img" value={formData.img} onChange={handleChange} className="form-control" required />
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2">Image URL</label>
+                <input
+                    type="text"
+                    name="img"
+                    value={formData.img}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
+                    required
+                />
             </div>
-            <div className="mb-3">
-                <label className="form-label">Price</label>
-                <input type="number" name="prix" value={formData.prix} onChange={handleChange} className="form-control" required />
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2">Price</label>
+                <input
+                    type="number"
+                    name="prix"
+                    value={formData.prix}
+                    onChange={handleChange}
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
+                    required
+                />
             </div>
-            <button type="submit" className="btn btn-success">Add Product</button>
+            <button
+                type="submit"
+                className="bg-green-500 text-white px-4 py-2 rounded-lg w-full hover:bg-green-600 transition-colors"
+            >
+                Add Product
+            </button>
         </form>
     );
 };

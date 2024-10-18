@@ -15,23 +15,29 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="container-fluid">
-                <Link to="/products" className="navbar-brand">Home</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <div className="ms-auto">
-                        {user ? (
-                            <>
-                                <Link to="/cart" className="nav-link text-white">Cart</Link>
-                                <Link to="/" className="nav-link text-white" onClick={handleLogout}>Logout</Link>
-                            </>
-                        ) : (
-                            <Link to="/login" className="nav-link">Login</Link>
-                        )}
-                    </div>
+        <nav className="bg-gray-800 p-4">
+            <div className="container mx-auto flex justify-between items-center">
+                <Link to="/products" className="text-white text-xl font-bold">
+                    Home
+                </Link>
+                <div className="flex items-center space-x-4">
+                    {user ? (
+                        <>
+                            <Link to="/cart" className="text-white hover:text-gray-300 transition-colors">
+                                Cart
+                            </Link>
+                            <button
+                                onClick={handleLogout}
+                                className="text-white hover:text-gray-300 transition-colors"
+                            >
+                                Logout
+                            </button>
+                        </>
+                    ) : (
+                        <Link to="/login" className="text-white hover:text-gray-300 transition-colors">
+                            Login
+                        </Link>
+                    )}
                 </div>
             </div>
         </nav>
