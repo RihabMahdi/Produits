@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteProduct } from '../features/ProSlice';
 import { addItemToCart } from '../features/CartSlice';

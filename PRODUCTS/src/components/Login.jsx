@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../features/AuthSlice';
@@ -68,7 +68,7 @@ const Login = () => {
             </button>
             <div className="mt-6 text-center">
                 <p className="text-gray-600">
-                    Don't have an account?{' '}
+                    Don t have an account?{' '}
                     <span
                         className="text-blue-500 cursor-pointer hover:underline"
                         onClick={() => navigate('/register')}
