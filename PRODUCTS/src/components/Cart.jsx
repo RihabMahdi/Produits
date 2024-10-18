@@ -1,7 +1,7 @@
-// src/components/Cart.js
+
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItemFromCart, clearCart } from '../features/cartSlice';
+import { removeItemFromCart, clearCart } from '../features/CartSlice';
 
 const Cart = () => {
     const dispatch = useDispatch();

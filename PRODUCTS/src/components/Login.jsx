@@ -1,4 +1,4 @@
-// src/components/Login.jsx
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +19,7 @@ const Login = () => {
 
         if (userExists) {
             dispatch(login({ username, password }));
-            navigate('/'); // Redirect to home page after successful login
+            navigate('/'); 
         } else {
             alert('Invalid credentials');
         }

@@ -1,4 +1,4 @@
-// src/components/ProductForm.jsx
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../features/ProSlice';

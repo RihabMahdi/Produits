@@ -1,11 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Ensure all React component files are included
+    './src/**/*.{js,jsx,ts,tsx}', // Add this to scan your src folder for Tailwind classes
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-}
-
+};

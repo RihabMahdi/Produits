@@ -1,4 +1,4 @@
-// src/components/EditProductForm.jsx
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editProduct } from '../features/ProSlice';
@@ -13,7 +13,7 @@ const EditProductForm = ({ product, onClose }) => {
         e.preventDefault();
         const updatedProduct = { ...product, name, description, price };
         dispatch(editProduct(updatedProduct));
-        onClose(); // Close the form/modal after editing
+        onClose(); 
     };
 
     return (

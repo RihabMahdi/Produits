@@ -1,20 +1,18 @@
-// src/features/productSlice.js
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Async thunk to fetch products
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
     const response = await axios.get('http://localhost:3000/Products');
     return response.data;
 });
 
-// Create a slice for products
 const productSlice = createSlice({
     name: 'products',
     initialState: {
         products: [],
-        status: 'idle', // loading status
-        error: null,    // error tracking
+        status: 'idle',
+        error: null,    
     },
     reducers: {
         addProduct: (state, action) => {
@@ -28,9 +26,6 @@ const productSlice = createSlice({
         },
         deleteProduct: (state, action) => {
             state.products = state.products.filter(product => product.id !== action.payload);
-        },
-        addItemToCart: (state, action) => {
-            // Logic for adding items to cart can be implemented in the cart slice
         },
     },
     extraReducers: (builder) => {
@@ -49,11 +44,8 @@ const productSlice = createSlice({
     },
 });
 
-// Export actions
 export const { addProduct, editProduct, deleteProduct, addItemToCart } = productSlice.actions;
 
-// Export selectors
 export const selectAllProducts = (state) => state.products.products;
 
-// Export the reducer
 export default productSlice.reducer;
