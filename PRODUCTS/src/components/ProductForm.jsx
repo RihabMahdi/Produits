@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import  { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../features/ProSlice';
 
@@ -26,54 +26,55 @@ const ProductForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto mt-10">
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Name</label>
+        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-8 max-w-lg mx-auto mt-10">
+            <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Add New Product</h2>
+            <div className="mb-5">
+                <label className="block text-gray-700 text-sm font-semibold mb-2">Name</label>
                 <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
+                    className="shadow-sm border border-gray-300 rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:ring focus:ring-green-500 transition duration-150"
                     required
                 />
             </div>
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Description</label>
+            <div className="mb-5">
+                <label className="block text-gray-700 text-sm font-semibold mb-2">Description</label>
                 <input
                     type="text"
                     name="description"
                     value={formData.description}
                     onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
+                    className="shadow-sm border border-gray-300 rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:ring focus:ring-green-500 transition duration-150"
                     required
                 />
             </div>
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Image URL</label>
+            <div className="mb-5">
+                <label className="block text-gray-700 text-sm font-semibold mb-2">Image URL</label>
                 <input
                     type="text"
                     name="img"
                     value={formData.img}
                     onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
+                    className="shadow-sm border border-gray-300 rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:ring focus:ring-green-500 transition duration-150"
                     required
                 />
             </div>
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Price</label>
+            <div className="mb-5">
+                <label className="block text-gray-700 text-sm font-semibold mb-2">Price</label>
                 <input
                     type="number"
                     name="prix"
                     value={formData.prix}
                     onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-500"
+                    className="shadow-sm border border-gray-300 rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:ring focus:ring-green-500 transition duration-150"
                     required
                 />
             </div>
             <button
                 type="submit"
-                className="bg-green-500 text-white px-4 py-2 rounded-lg w-full hover:bg-green-600 transition-colors"
+                className="bg-green-500 text-white font-semibold px-4 py-2 rounded-lg w-full hover:bg-green-600 transition duration-200"
             >
                 Add Product
             </button>

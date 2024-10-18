@@ -19,7 +19,7 @@ const Login = () => {
 
         if (userExists) {
             dispatch(login({ username, password }));
-            navigate('/'); 
+            navigate('/products'); 
         } else {
             alert('Invalid credentials');
         }
