@@ -16,27 +16,35 @@ const Navbar = () => {
     return (
         <nav className="bg-gray-800 p-4 shadow-md">
             <div className="container mx-auto flex justify-between items-center">
-                <Link to="/products" className="text-white text-xl font-bold hover:text-gray-300 transition-colors">
+                <Link to="/products" className="text-white text-xl font-bold hover:text-gray-300 transition-colors text-decoration-none">
                     Products
                 </Link>
                 <div className="flex items-center space-x-6">
                     {user ? (
                         <>
-                        <Link to="/addProduct" className="text-white text-decoration-none flex items-center hover:text-gray-300 transition-colors">
-                            <FaPlus className="mr-1" /> AddItem
-                        </Link>
-                            <Link to="/cart" className="text-white flex items-center hover:text-gray-300 transition-colors">
-                                <FaShoppingCart className="mr-1" /> 
+                            {user.isAdmin && (
+                                <Link
+                                    to="/addProduct"
+                                    className="text-white flex items-center font-medium hover:text-gray-300 transition-colors text-decoration-none"
+                                >
+                                    <FaPlus className="mr-1" /> AddItem
+                                </Link>
+                            )}
+                            <Link to="/cart" className="text-white flex font-medium items-center hover:text-gray-300 transition-colors text-decoration-none">
+                                <FaShoppingCart className="mr-1" />
                             </Link>
                             <button
                                 onClick={handleLogout}
-                                className="text-white flex items-center hover:text-gray-300 transition-colors"
+                                className="text-white flex font-medium items-center hover:text-gray-300 transition-colors text-decoration-none"
                             >
                                 <FaSignOutAlt className="mr-1" /> Logout
                             </button>
                         </>
                     ) : (
-                        <Link to="/login" className="text-white flex items-center hover:text-gray-300 transition-colors">
+                        <Link
+                            to="/login"
+                            className="text-white flex items-center font-medium hover:text-gray-300 transition-colors text-decoration-none"
+                        >
                             <FaSignInAlt className="mr-1" /> Login
                         </Link>
                     )}
